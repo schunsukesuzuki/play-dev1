@@ -1,0 +1,217 @@
+@(message: String, customerForm: play.api.data.Form[Any] = null, forms: play.api.data.Form[Any] = null)(implicit messages: Messages)
+
+<!--
+@import com.github.j5ik2o.spetstore.domain.model.customer._
+@import com.github.j5ik2o.spetstore.application.controller._
+-->
+
+@import controllers.{ SignupController }
+@import com.github.j5ik2o.spetstore.infrastructure.db.{ CustomerRecord }
+
+
+@import helper._
+@title = {Sign Up}
+
+
+
+@main {
+
+@*    @play20.welcome(message)
+*@
+
+<fieldset>
+
+       
+   @customerForm(action = routes.SignupController.signupresult()) {     
+       
+        <legend>必要事項を入力してください</legend>
+        @helper.inputText(customerForm("name"), '_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
+        @helper.inputText(customerForm("sexType"),'_label -> "sexType",'_help -> "input valid sex type.",'_error -> customerForm.globalError)
+        @helper.inputText(customerForm("zipCode"),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
+        @(customerForm("prefCode").value),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
+        @(customerForm("cityName").value),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
+        @(customerForm("addressName").value),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
+        @(customerForm("buildingName").value),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
+        @(customerForm("email").value),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
+        @(customerForm("phone").value),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
+
+        @(customerForm("loginName").value),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
+        @(customerForm("password.main").value),'_label -> "password",'_help -> "input password.")
+        @(customerForm("password.confirm").value),'_label -> "confirm password",'_error -> customerForm.error("password"))
+
+    }
+ </fieldset>
+
+
+ <div class= "actions">
+     <input type="submit" class="btn_primary" value="signup">
+     <a href="app.controllers.signupresult" class="btn">cancel</a>
+ </div>
+
+
+<ul class="globalNav">
+    <li class="active">
+        <a href="#">
+            Shop Cart - Play 2.5
+            <span></span>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <strong></strong>
+            <span>about</span>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <strong></strong>
+            <span>contact</span>
+        </a>
+    </li>
+    <li>
+    <a href="#">
+            <strong></strong>
+            <span>schunsukesuzuki</span>
+        </a>
+    </li>
+</ul>
+
+  
+  <div class="chat-part">
+  
+  <div class="dev-log">
+  <h1>Sign Up</h1>
+  <p>Memo:04-11-2018:dockerでも動作を確認</p>
+  </div>
+  
+  <table>
+    <tr>
+      <td>account ID</td>
+    </tr>
+    <tr>
+      <td><input class="msg-box" type="text" id="costomer" /></td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <td>password</td>
+    </tr>
+    <tr>
+      <td><input class="msg-box" type="password" id="costomer_password" /></td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <td>name</td>
+    </tr>
+    <tr>
+      <td><input class="msg-box" type="text" id="customer_name" /></td>
+      </td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <td>sex type</td>
+      <p></p>
+    </tr>
+    <tr>
+      <td><input class="msg-box" type="radio" id="costomer_sex_type" value="female"/>female</td>
+      <td><input class="msg-box" type="radio" id="costomer_sex_type" value="male"/>male</td>     
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <td>zip code</td>
+    </tr>
+    <tr>
+      <td><input class="msg-box" type="number" id="customer_zip_code" /></td>
+      </td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <td>pref code</td>
+    </tr>
+    <tr>
+      <td><input class="msg-box" type="text" id="customer_pref_code" /></td>
+      </td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <td>city name</td>
+    </tr>
+    <tr>
+      <td><input class="msg-box" type="text" id="customer_city_name" /></td>
+      </td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <td>address_name</td>
+    </tr>
+    <tr>
+      <td><input class="msg-box" type="text" id="customer_address_name" /></td>
+      </td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <td>building_name</td>
+    </tr>
+    <tr>
+      <td><input class="msg-box" type="text" id="customer_building_name" /></td>
+      </td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <td>email</td>
+    </tr>
+    <tr>
+      <td><input class="msg-box" type="email" id="customer_email_name" /></td>
+      </td>
+    </tr>
+  </table>
+
+
+  <table>
+    <tr>
+      <td>phone</td>
+    </tr>
+    <tr>
+      <td><input class="msg-box" type="number" id="customer_phone" /></td>
+      </td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <td>favorite_category_id</td>
+    </tr>
+    <tr>
+      <td><input class="msg-box" type="text" id="customer_favorite_category_id" /></td>
+      </td>
+    </tr>
+  </table>
+
+  <br />
+  <br />
+
+  <hr />
+  <input class="msg-box" type="text" id="speech" />
+  <button class="enter" type="button" id="send">送信</button>
+  <button class="enter" type="button" id="leave">退出</button>
+  <hr />
+
+
+}  

@@ -1,0 +1,83 @@
+@(message: String, customerForm: play.api.data.Form[Any] = null, forms: play.api.data.Form[Any] = null)(implicit messages: Messages)
+
+@import controllers.{ SignupController }
+@import com.github.j5ik2o.spetstore.infrastructure.db.{ CustomerRecord }
+
+<!--
+
+@import com.github.j5ik2o.spetstore.domain.model.customer._
+@import com.github.j5ik2o.spetstore.application.controller._
+
+-->
+
+@import helper._
+
+@title = {Signup Result}
+
+@main("welcome to play") {
+
+<div class = "container">
+
+  <h1>checking confirmation</h1>
+  </br>
+
+  <h3>your name</h3>
+  <p>
+    @(customerForm("name").value)
+  </p>
+
+  <h3>sex type</h3>
+  <p>
+    @(customerForm("sexType").value)
+  </p>
+
+  <h3>zip code</h3>
+  <p>
+    @(customerForm("zipCode").value)
+  </p>
+
+  <h3>pref code</h3>
+  <p>
+    @(customerForm("prefCode").value)
+  </p>
+
+  <h3>city name</h3>
+  <p>
+    @(customerForm("cityName").value)
+  </p>
+
+  <h3>address name</h3>
+  <p>
+    @(customerForm("addressName").value)
+  </p>
+
+  <h3>building name</h3>
+  <p>
+    @(customerForm("buildingName").value)
+  </p>
+
+  <h3>email</h3>
+  <p>
+    @(customerForm("email").value)
+  </p>
+
+  <h3>phone</h3>
+  <p>
+    @(customerForm("phone").value)
+  </p>
+
+  <h3>login name</h3>
+  <p>
+    @(customerForm("loginName").value)
+  </p>
+
+  <h3>password</h3>
+  <p>
+    @(customerForm("password").value)
+  </p>
+
+</div>
+
+}
+
+
