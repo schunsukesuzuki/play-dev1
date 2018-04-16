@@ -1,13 +1,7 @@
-@(message: String, customerForm: play.api.data.Form[Any] = null, forms: play.api.data.Form[Any] = null)(implicit messages: Messages)
-
-<!--
-@import com.github.j5ik2o.spetstore.domain.model.customer._
-@import com.github.j5ik2o.spetstore.application.controller._
--->
+@(message: String, customerForm: Form[Any] = null, customerData: Result = null, default: String = "twirl")(implicit messages: Messages)
 
 @import controllers.{ SignupController }
 @import com.github.j5ik2o.spetstore.infrastructure.db.{ CustomerRecord }
-
 
 @import helper._
 @title = {Sign Up}
@@ -16,31 +10,29 @@
 
 @main {
 
-@*    @play20.welcome(message)
-*@
-
-<fieldset>
-
-       
-   @customerForm(action = routes.SignupController.signupresult()) {     
-       
         <legend>必要事項を入力してください</legend>
+
+   @helper.form(action = routes.SignupController.signupresult()) {      
+
         @helper.inputText(customerForm("name"), '_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
         @helper.inputText(customerForm("sexType"),'_label -> "sexType",'_help -> "input valid sex type.",'_error -> customerForm.globalError)
         @helper.inputText(customerForm("zipCode"),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
-        @(customerForm("prefCode").value),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
-        @(customerForm("cityName").value),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
-        @(customerForm("addressName").value),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
-        @(customerForm("buildingName").value),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
-        @(customerForm("email").value),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
-        @(customerForm("phone").value),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
+        @helper.inputText(customerForm("prefCode"),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
+        @helper.inputText(customerForm("cityName"),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
+        @helper.inputText(customerForm("addressName"),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
+        @helper.inputText(customerForm("buildingName"),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
+        @helper.inputText(customerForm("email"),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
+        @helper.inputText(customerForm("phone"),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
 
-        @(customerForm("loginName").value),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
-        @(customerForm("password.main").value),'_label -> "password",'_help -> "input password.")
-        @(customerForm("password.confirm").value),'_label -> "confirm password",'_error -> customerForm.error("password"))
+        @helper.inputText(customerForm("loginName"),'_label -> "name",'_help -> "input valid name.",'_error -> customerForm.globalError)
+        @helper.inputText(customerForm("password"),'_label -> "password",'_help -> "input password.")
+
+<!--
+        @helper.inputText(customerForm("password.main"),'_label -> "password",'_help -> "input password.")
+        @helper.inputText(customerForm("password.confirm"),'_label -> "confirm password",'_error -> customerForm.error("password"))
+-->
 
     }
- </fieldset>
 
 
  <div class= "actions">
