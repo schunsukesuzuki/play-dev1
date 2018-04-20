@@ -1,0 +1,155 @@
+@import "utils/reset";
+@import "utils/layout";
+
+
+body {
+      margin-left: 0%;
+      margin-right: 0%; 
+      background-color: rgba(200,228,241,0.17);
+      font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐ>ゴシック", "MS PGothic", sans-serif; /*フォント種類*/
+      font-size: 16px;        /*文字サイズ*/
+      color: rgba(41,46,46,0.75);
+      line-height: 1;         /*行間*/
+      }
+
+//class は . で指定(何度も使える)、idは # で指定(一度きり)
+
+
+.flex1{
+  display: flex;
+}
+
+div.flex2{
+  width: 90%;
+}
+
+h1 {
+  color: rgba(108,193,196,0.5);
+}
+
+h2 {
+  color: rgba(108,193,196,0.5);
+  font-size: 20px;	
+}
+
+p {
+  color: rgba(210,132,176,0.75);
+  font-size: 13px;	
+}
+
+td {
+  color: rgba(210,132,176,0.75);
+  font-size: 13px;	
+}
+
+a {
+	color: rgba(34,162,215,0.94);		/*リンクテキストの色*/
+	transition: 0.5s;	/*マウスオン時の移り変わるまでの時間設定。0.5秒。*/
+	text-decoration: none;
+}
+
+a:hover {
+	color: rgba(56,220,245,0.77);			/*マウスオン時の文字色*/
+	text-decoration: none;	/*マウスオン時に下線を消す設定。残したいならこの１行削除。*/
+}
+
+hr {
+height: 1px;
+background-color: rgba(16,159,163,0.19);
+border: none;
+color: none;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0px;    
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+
+
+.chat-part{
+  margin-left:5%;
+  background-color: ;
+  width:100%;
+	
+}
+
+.dev-log{
+  margin-top:30px;
+  margin-bottom: 30px;
+}
+
+.msg-box{
+  border:0;
+  padding:5px;
+  font-size:1.1em;
+  font-family:Arial, sans-serif;
+  color:#aaa;
+  border:solid 1px #ccc;
+  margin:0 15px 10px 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;	
+  -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+}
+.enter{
+  border:0;
+  padding:3px;
+  font-size: 0.8em;
+  font-family:Arial, sans-serif;
+  color:#aaa;
+  border:solid 1px #ccc;
+  margin:0 0 0 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;	
+  -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+	
+}
+
+
+
+.globalNav {
+    list-style: none;
+    overflow: hidden;
+    width: 100%;
+    background: black;
+    font-size: 120%;
+}
+ 
+.globalNav li {
+    float: left;
+    border-right: 0px solid #DDD;
+}
+ 
+.globalNav li a {
+    display: block;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+}
+ 
+.globalNav li a span {
+    display: block;
+    margin: 5px 0 0 0;
+    color: #AAA;
+    text-transform: uppercase;
+    font-size: 70%;
+    letter-spacing: 1px;
+}
+ 
+.globalNav li a:hover {
+    background: #EEE;
+}
+ 
+.globalNav li.active a {
+    background: #333;
+    color: #EEE;
+}
